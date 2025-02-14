@@ -1,10 +1,10 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class CreateUsersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id(); // 自動インクリメントの符号なし整数のプライマリキー
+            $table->bigIncrements('id'); // 自動インクリメントの符号なし整数のプライマリキー
             $table->string('username', 255);
-            $table->string('email', 255)->unique(); // 一意制約
+            $table->string('mail', 255)->unique(); // 一意制約
             $table->string('password', 255);
             $table->string('bio', 400)->nullable();
-            $table->string('icon_image', 255)->default('icon1.png');
+            $table->string('images', 255)->default('icon1.png');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
         });
@@ -34,4 +34,4 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
-}
+};

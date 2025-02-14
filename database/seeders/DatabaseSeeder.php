@@ -20,5 +20,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            UsersTableSeeder::class,
+            PostsTableSeeder::class,
+            FollowsTableSeeder::class
+            // この記載がないと、レコードの登録ができない。必ず記載する！！！
+        ]);
     }
 }
