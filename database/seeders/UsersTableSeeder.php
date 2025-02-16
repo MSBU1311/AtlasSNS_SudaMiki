@@ -17,15 +17,15 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             ['username'=>'Atlasone',
-            'mail'=>'Atlasone@atlas.sns',
+            'email'=>'Atlasone@atlas.sns',
             'password'=>bcrypt('1111'),
             'bio'=>'Atlasoneです。'],
             ['username'=>'Atlastwo',
-            'mail'=>'Atlastow@atlas.sns',
+            'email'=>'Atlastow@atlas.sns',
             'password'=>bcrypt('2222'),
             'bio'=>'Atlastwoです。'],
             ['username'=>'Atlasthree',
-            'mail'=>'Atlasthree@atlas.sns',
+            'email'=>'Atlasthree@atlas.sns',
             'password'=>bcrypt('3333'),
             'bio'=>'Atlasthreeです。']
 

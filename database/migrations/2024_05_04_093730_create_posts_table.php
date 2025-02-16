@@ -1,10 +1,10 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-return new class extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,18 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id')->autoIncrement();
-            $table->unsignedBigInteger('user_id');
-            // user_idをunsignedBigIntegerに変更することで、Usersのidとリレーションできる
-            // bigIncrements（Users)と対応する他のテーブルカラムはnsignedBigInteger
-            // このリレーションがある場合は、先に下のUsersがマイグレーションされていないと、うまくマイグレーションされない。
-            // ファイル自体を先にUsersをcreateする必要があるよ！！！！！！
+            $table->integer('id')->autoIncrement();
+            $table->unsignedBigInteger('user_id'); // user_idをunsignedBigIntegerに変更
             $table->string('post', 400);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->default(DB::raw('current_timestamp on update current_timestamp'));
 
             // 外部キー制約を追加
-            // user_idは、Usersのidに対応しており、Usersのidが削除されれば一緒に削除される
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -39,4 +34,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('posts');
     }
-};
+}

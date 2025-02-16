@@ -1,10 +1,26 @@
 @charset "UTF-8";
 
-html{
+html {
     height: 100%;
 }
 
-body{
-    height: 100%;
-    background: #186AC9;
+body {
+    background: linear-gradient(#2F6AC3 0%, #F2E05B 100%);
+    background-size: cover;
+    width: 50%;
+    /* 幅指定 */
+    height: 50%;
+    /* 高さ指定 */
+    margin: 0 auto;
+    /* 中央寄せ */
+    position: relative;
+}
+
+.loginContainer {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    margin: 0 auto;
+    background-color: #ff69d4;
+    opacity: 0.5;
 }
