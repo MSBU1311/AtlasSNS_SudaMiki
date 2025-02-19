@@ -15,6 +15,12 @@ class AuthenticatedSessionController extends Controller
     /**
      * Display the login view.
      */
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     public function create(): View
     {
         return view('auth.login');

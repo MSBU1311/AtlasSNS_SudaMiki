@@ -55,7 +55,8 @@ class RegisteredUserController extends Controller
 
     public function added(Request $request): View
     {
-        $username=$request->session()->get('username',[]);
+        // sessionから$usernameを取り出す記述。bladeに＄usernameがないため、今回は記述なしでOK
+        // $username=$request->session()->get('username',[]);
 
         return view('auth.added');
     }

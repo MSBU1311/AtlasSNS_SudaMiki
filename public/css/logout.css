@@ -13,5 +13,53 @@ body {
     /* 高さ指定 */
     margin: 0 auto;
     /* 中央寄せ */
-    position: relative;
+    text-align: center;
+}
+
+.atlas_logo img {
+    width: 130px;
+    margin-top: 10%;
+}
+
+.subtitle {
+    color: #fff;
+    font-size: 25px;
+}
+
+
+#container {
+    /* color: #fff; */
+    background-color: rgb(0, 0, 0, .2);
+    border-radius: 10px;
+    width: 250px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 5%;
+    padding: 10px;
+}
+
+.email,
+.password {
+    color: #fff;
+    text-align: left;
+    margin-top: 5%;
+    font-size: 1.2rem;
+}
+
+.email_form,
+.password_form {
+    width: 100%;
+}
+
+/* .btn {
+    background-color: #D94A55;
+    width: 100%;
+} */
+
+.register_btn {
+    color: #fff;
+}
+
+.register_btn :hover {
+    color: #2F6AC3;
 }

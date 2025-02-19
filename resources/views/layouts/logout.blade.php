@@ -24,8 +24,8 @@
     </head>
     <body>
         <header>
-            <h1><img src="/images/atlas.png"></h1>
-            <p>Social Network Service</p>
+            <h1 class=atlas_logo><img src="/images/atlas.png"></h1>
+            <p class=subtitle>Social Network Service</p>
         </header>
         @if($errors->any())
           <div class="alert alert-danger">

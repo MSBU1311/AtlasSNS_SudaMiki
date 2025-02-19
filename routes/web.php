@@ -31,12 +31,17 @@ Route::get('search', [UsersController::class, 'index']);
 Route::get('follow-list', [PostsController::class, 'index']);
 Route::get('follower-list', [PostsController::class, 'index']);
 
+// 新規登録フォーム送信
 Route::post('/user/create', [RegisteredUserController::class, 'store']);
 
+// ログイン機能
 Route::post('/posts/index', [AuthenticatedSessionController::class, 'store']);
 
+// ログイン画面表示
 Route::get('/auth/login', [AuthenticatedSessionController::class, 'create']);
 
+// 新規登録
 Route::get('/register', [RegisteredUserController::class, 'create']);
 
+// 新規登録完了画面表示
 Route::get('/added', [RegisteredUserController::class, 'added']);
