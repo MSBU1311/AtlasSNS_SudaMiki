@@ -24,9 +24,18 @@
     </head>
     <body>
         <header>
-            <h1><img src="images/atlas.png"></h1>
+            <h1><img src="/images/atlas.png"></h1>
             <p>Social Network Service</p>
         </header>
+        @if($errors->any())
+          <div class="alert alert-danger">
+             <ul>
+               @foreach($errors->all() as $error)
+               <li>{{ $error }}</li>
+               @endforeach
+             </ul>
+          </div>
+        @endif
         <div id="container">
             {{ $slot }}
         </div>
