@@ -14,6 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/js/script.js"></script>
   <!--サイトのアイコン指定-->
   <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
   <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
@@ -28,6 +30,15 @@
   <header>
     @include('layouts.navigation')
   </header>
+  @if($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+          @foreach($errors->all() as $error)
+          <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+    </div>
+  @endif
   <!-- Page Content -->
   <div id="row">
     <div id="container">
@@ -35,21 +46,48 @@
     </div>
     <div id="side-bar">
       <div id="confirm">
-        <p>〇〇さんの</p>
-        <div>
-          <p>フォロー数</p>
-          <p>〇〇名</p>
+        @if(Auth::check())
+        <p class=side_username>{{Auth::user()->username }}さんの</p>
+        @endif
+
+        <div class=side_follow>
+          <div class="side_follownumber">
+            <div>
+              <p>フォロー数</p>
+            </div>
+            <div class=follow_number>
+              <p>{{Auth::user()->follows()->get()->count()}}名</p>
+            </div>
+          </div>
+          <div class="side_followbtn">
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/followList'">フォローリスト</button>
+          </div>
         </div>
-        <p class="btn"><a href="">フォローリスト</a></p>
-        <div>
-          <p>フォロワー数</p>
-          <p>〇〇名</p>
+
+        <div class=side_follower>
+          <div class="side_followernumber">
+            <div>
+              <p>フォロワー数</p>
+            </div>
+            <div class=follower_number>
+              <p>{{Auth::user()->followers()->get()->count()}}名</p>
+            </div>
+          </div>
+          <div class="side_followerbtn">
+            <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/followerList'">フォロワーリスト</button>
+          </div>
         </div>
-        <p class="btn"><a href="">フォロワーリスト</a></p>
+
       </div>
-      <p class="btn"><a href="">ユーザー検索</a></p>
+
+      <div id=search>
+        <button type="button" class="btn btn-primary btn-sm" onclick="location.href='/search'">ユーザー検索</button>
+      </div>
+
     </div>
+
   </div>
+
   <footer>
   </footer>
   <script src="{{ asset('js/app.js') }}"></script>

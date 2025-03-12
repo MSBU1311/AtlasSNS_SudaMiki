@@ -35,7 +35,21 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('top');
+        return redirect()->intended('/posts/index');
     }
+
+
+    /**
+     * ユーザーをアプリケーションからログアウトさせる
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function logout(Request $request)
+    {
+        // ユーザーのセッション削除
+    Auth::logout('top');
+    return redirect('/auth/login');
+}
 
 }

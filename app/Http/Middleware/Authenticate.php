@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+
+use Illuminate\View\View;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 
 class Authenticate extends Middleware
@@ -12,10 +14,12 @@ class Authenticate extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return string|null
      */
+    // ログインしていないユーザーが、ログイン後の画面を指定した場合、どこに返すかを指定
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('/auth/login');
+            // routeの中は、返したい画面表示のルーティングのnameを記入
+            return route('login');
         }
     }
 }

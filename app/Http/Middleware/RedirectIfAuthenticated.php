@@ -22,7 +22,9 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
+            // ログイン済みかどうかをチェックする
             if (Auth::guard($guard)->check()) {
+                // ログイン済みの場合にログイン前画面を指定されたら、RouteServiceProvider::HOMEに返す
                 return redirect(RouteServiceProvider::HOME);
             }
         }
