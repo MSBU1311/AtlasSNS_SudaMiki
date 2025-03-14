@@ -283,6 +283,7 @@ return [
     |
     */
 
+    // カラムをどう変換したいか記載
     'attributes' => [
         'post' => '投稿',
         'updatePost' => '投稿内容',
