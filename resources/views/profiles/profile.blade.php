@@ -42,7 +42,7 @@
         </div>
 
         <div class=password_form>
-            {{ Form::password('password_confirmation',null,['required','class' => 'input','type' => 'password']) }}
+            {{ Form::password('password_confirmation',null,['class' => 'input']) }}
         </div>
       </div>
 

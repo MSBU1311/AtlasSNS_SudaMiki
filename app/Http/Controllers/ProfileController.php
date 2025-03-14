@@ -26,7 +26,7 @@ class ProfileController extends Controller
             'username' => 'required|min:2|max:12',
             'email' => 'required|min:5|max:40|email',
             'password' => 'required|min:8|max:20|alpha_num|confirmed', // パスワードは変更しない場合はnullable
-            'password_confirmation' => 'required|same:password', // passwordと一致する場合のみ
+            'password_confirmation' => 'required', // passwordと一致する場合のみ
             'bio' => 'max:150',
             'icon_image' => 'image|mimes:jpg,png,bmp,gif,svg|max:2048', // 画像サイズ制限を追加
         ]);
