@@ -7,13 +7,21 @@ html {
 body {
     background: linear-gradient(#2D68C2 0%, #F2E05B 100%);
     background-size: cover;
-    width: 50%;
+    width: 100%;
     /* 幅指定 */
-    height: 50%;
+    height: 100vh;
     /* 高さ指定 */
     margin: 0 auto;
     /* 中央寄せ */
     text-align: center;
+    background-position: center center;
+    /* 背景を常に上下左右の中央に配置 */
+    background-repeat: no-repeat;
+    /* 繰り返さない */
+    background-attachment: fixed;
+    /* 高さが背景よりも大きい場合は自動で調整 */
+    background-size: cover;
+    /* ブラウザサイズに応じて背景を調整 */
 }
 
 .atlas_logo img {

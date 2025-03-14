@@ -17,7 +17,7 @@
             </a>
           </li>
           <li class="post_username">{{$posts->user->username}}</li>
-          <li class="post_time">{{$posts->created_at}}<br></li>
+          <li class="post_time">{{substr($posts->created_at,0, 16)}}<br></li>
         </div>
 
         <div class="post_second">

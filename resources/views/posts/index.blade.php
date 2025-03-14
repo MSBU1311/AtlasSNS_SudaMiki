@@ -26,7 +26,8 @@
           </li>
 
           <li class="post_time">
-            {{$list->created_at}}<br>
+            <!-- substr():文字列の一部を返す関数。０番目〜１６番目までを表示させている -->
+            {{ substr($list->created_at,0, 16) }}<br>
           </li>
         </div>
 

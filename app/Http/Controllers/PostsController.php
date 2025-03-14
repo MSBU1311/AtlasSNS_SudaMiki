@@ -63,6 +63,11 @@ class PostsController extends Controller
 
     // 編集機能
     public function postUpdate(Request $request){
+
+        $request->validate([
+            'updatePost' => ['required', 'min:1', 'max:150']
+        ]);
+
         $id = $request->input('id');
         $update_post = $request->input('updatePost');
 
