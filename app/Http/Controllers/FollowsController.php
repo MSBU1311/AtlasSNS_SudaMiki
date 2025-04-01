@@ -18,6 +18,8 @@ class FollowsController extends Controller
     {
         Auth::user()->follows()->attach($user->id);
 
+        return redirect()->back();
+
     if ($request->has('from_search')) {
         return redirect()->route('search', ['keyword' => null]); // 検索画面に戻る
     } else {
